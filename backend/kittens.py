@@ -73,3 +73,27 @@ def age_in_weeks(kitten_table):
 @app.route('/kitten-tracking-get', methods=['GET'])
 def get_current_kittens():
     return all_current_kittens
+
+@app.route('/kitten-tracking-vaccination_dates', methods=['GET'])
+def get_kitten_vax_dates(kitten_table):
+    status  = {}
+    for kitten in kitten_table:
+        internal = {}
+        for i in range(5):
+            vaccine = "FVRCP " + str(i + 1)
+            try:
+                if (kitten["fields"][vaccine]):
+                    internal[vaccine] = kitten["fields"][vaccine]
+            except KeyError:
+                continue
+        for i in range(1):
+            try:
+                internal["Rabies Vaccine Administration"] = kitten["fields"]["Rabies Vaccine"]
+            except KeyError:
+                continue
+        internal["Current Foster"] = kitten["fields"]["First name"]
+        internal["DoB"] = kitten["fields"]["DOB"]
+        internal["Countdown Date"] = kitten["fields"]["countdown date"]
+        internal["Days to Countdown Date"] = kitten["fields"]["Countdown"]
+        status[kitten["fields"]["Kitten Name"]] = internal
+    return status

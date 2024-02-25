@@ -1,19 +1,19 @@
 import pyairtable as lib
 from flask import Flask
+import os
+
 
 app = Flask(__name__)
 
-
-testApi = lib.Api("pat3D5wMrLCN42wp1.108b4681e97af87c24555148480410f53290123a38b9099cda9308f65fa36b12")
-table   = testApi.table("appf8K2wKv3O6cvgF","Kittens")
+api_key = os.environ.get('API_KEY')
+table_key = os.environ.get('TABLE_KEY')
+testApi = lib.Api(api_key)
+table   = testApi.table(table_key, "Kittens")
 all_current_kittens = table.all(view="All Current Kittens")
 vaccination_tracker = table.all(view="Vaccination Tracker")
 combo_test = table.all(view="Kittens needing combo test")
 spay_neuter = table.all(view="Spay/Neuter Tracker")
-num_vaccinations = len(vaccination_tracker) #9 vaccinations
  
-count = len(all_current_kittens) #26 kittens    
-spay_neuter_count = len(spay_neuter) # 7 kittens
 
 
 @app.route('/kitten-tracking-status', methods=['GET'])
@@ -36,4 +36,13 @@ def get_status_json(kitten_table):
 
 @app.route('/kitten-tracking-numbers', methods=['GET'])
 def get_kitten_numbers(kitten_table):
-    
+    count = len(all_current_kittens) #26 kittens
+    num_vaccinations = len(vaccination_tracker) #9 vaccinations
+    spay_neuter_count = len(spay_neuter) # 7 kittens 
+    combo_test_count = len(combo_test)
+    return {
+        "Count": count,
+        "Vaccinations": num_vaccinations,
+        "Spay/Neuter": spay_neuter_count,
+        "Combo Test": combo_test_count
+    }

@@ -69,3 +69,7 @@ def age_in_weeks(kitten_table):
         age_in_weeks = difference.days // 7
         age[age_in_weeks] += 1
     return age
+
+@app.route('/kitten-tracking-get', methods=['GET'])
+def get_current_kittens():
+    return all_current_kittens

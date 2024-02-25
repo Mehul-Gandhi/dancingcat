@@ -1,9 +1,12 @@
 import pyairtable as lib
 from flask import Flask
 import os
-
+from datetime import datetime
+from collections import defaultdict
 
 app = Flask(__name__)
+from dotenv import load_dotenv
+load_dotenv()
 
 api_key = os.environ.get('API_KEY')
 table_key = os.environ.get('TABLE_KEY')
@@ -46,3 +49,23 @@ def get_kitten_numbers(kitten_table):
         "Spay/Neuter": spay_neuter_count,
         "Combo Test": combo_test_count
     }
+
+@app.route('/kitten-tracking-ages', methods=['GET'])
+def age_in_weeks(kitten_table):
+    """
+    """
+    age = defaultdict(int)
+    date_format = "%m/%d/%Y"
+    current_date_str = datetime.now().strftime(date_format)
+    current_date = datetime.strptime(current_date_str, date_format)
+    print(current_date)
+    for kitten in kitten_table:
+        birth_date_str = kitten['fields']['DOB']
+        print(birth_date_str)
+        year, month, day = birth_date_str.split('-')
+        birth_date = datetime.strptime(f"{month}/{day}/{year}", date_format)
+        print(birth_date)
+        difference = current_date - birth_date 
+        age_in_weeks = difference.days // 7
+        age[age_in_weeks] += 1
+    return age

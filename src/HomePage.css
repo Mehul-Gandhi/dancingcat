@@ -1,0 +1,65 @@
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+.image {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0;
+transition: opacity 1s ease-in-out;
+}
+
+.image.active {
+opacity: 1;
+}
+
+.dashboard-button {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 200px;
+height: 50px;
+background-color: #ffc0cb; /* Light pink */
+border: none;
+border-radius: 25px;
+font-size: 18px;
+font-weight: bold;
+color: white;
+text-align: center;
+line-height: 50px;
+cursor: pointer;
+outline: none;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-button:hover {
+background-color: #ff69b4; /* Darker pink on hover */
+transform: translate(-50%, -50%) scale(1.1);
+box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-button:active {
+transform: translate(-50%, -50%) scale(0.9);
+}
+
+.title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px; /* Increased font size */
+    color: #FF4081; /* Pink color */
+    text-align: center;
+    z-index: 1; /* Ensure title appears above images */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
+  }
+  

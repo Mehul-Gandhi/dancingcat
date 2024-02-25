@@ -1,54 +1,74 @@
-import logo from './logo.svg';
 import './App.css';
-import Welcome from './Welcome.js';
+// import Welcome from './Welcome.js';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './HomePage.js';
+import Dashboard from './Dashboard';
+// import NextPageButton from './NextPageButton';
 import { useState } from 'react'; // import the hook
 
-function App() {
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<Dashboard/>} />
+      </Routes>
+    </Router>
+  )
+}
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Welcome to the Dancing Cat's Dashboard!</h1>
+//       <HomePage />
+//       {/* <NextPageButton /> */}
+//     </div>
+//   )
   // function doCoolStuff() {
   //   alert('yay cool')
   // }
-  const [count, setCount] = useState(0) // create state
-  const[tasks, setTasks] = useState(["hello"]); // initial value is an array
-  const[inputValue, setInputValue] = useState("Task...");
+  // const [count, setCount] = useState(0) // create state
+  // const[tasks, setTasks] = useState(["hello"]); // initial value is an array
+  // const[inputValue, setInputValue] = useState("Task...");
 
-  const addTask = () => {
-    setCount(count + 1);
+  // const addTask = () => {
+  //   setCount(count + 1);
 
-    setTasks([...tasks, inputValue]);
-    setInputValue("");
-  };
+  //   setTasks([...tasks, inputValue]);
+  //   setInputValue("");
+  // };
   // return (
   //   <div>
   //     <p>You Clicked {count} times</p>
   //     <button onClick={() => setCount(count+1)}>Click Me</button>
   //   </div>
   // )
-  const increment = () => {
-    setCount(count + 1);
-  }
+  // const increment = () => {
+  //   setCount(count + 1);
+  // }
   // const tasks = ["Give Workshop", "Field Questions"];
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Current count: {count}</h1>
+  // return (
+  //   <div className="App">
+  //     <header className="App-header">
+  //       <h1>Current count: {count}</h1>
         
-        <input placeholder="Add a task..."
-         value={inputValue} 
-         onChange={(event) => setInputValue(event.target.value)}
-         />
-        <button onClick = {addTask}>Add Task</button>
-        <ul>
-          {tasks.map((task) => {
-            return (
-              <li>{task}</li>
-            )
-          })
+  //       <input placeholder="Add a task..."
+  //        value={inputValue} 
+  //        onChange={(event) => setInputValue(event.target.value)}
+  //        />
+  //       <button onClick = {addTask}>Add Task</button>
+  //       <ul>
+  //         {tasks.map((task) => {
+  //           return (
+  //             <li>{task}</li>
+  //           )
+  //         })
 
-          }
-        </ul>
-      </header>
-    </div>
-  );
+  //         }
+  //       </ul>
+  //     </header>
+  //   </div>
+  // );
   
 
   // const doCoolStuff = () => {
@@ -80,6 +100,5 @@ function App() {
   //     </header>
   //   </div>
   // );
-}
 
 export default App;

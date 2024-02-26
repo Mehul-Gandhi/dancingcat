@@ -83,10 +83,10 @@ const MainContent = () => {
     <div style={mainContentStyle}>
       <h1 style={headerStyle}>Welcome to the Cat Dashboard</h1>
       <div style={gridContainerStyle}>
-        <InfoBox title="Total Cats" count={totalCats || ""} bgColor="rgba(251, 207, 232, 0.8)" /> 
-        <InfoBox title="Needing Vasccinations" count={numVaccinations || ""} bgColor="rgba(170, 214, 219, 0.8)" /> 
-        <InfoBox title="Needing Spay/Neuter" count={needingSpayNeuter || ""} bgColor="rgba(255, 244, 213, 0.8)" /> 
-        <InfoBox title="Kittens Needing Tests" count={comboTest || ""} bgColor="rgba(220, 232, 250, 0.8)" /> 
+        <InfoBox title="Total Cats" count={totalCats || 0} bgColor="rgba(251, 207, 232, 0.8)" /> 
+        <InfoBox title="Needing Vasccinations" count={numVaccinations || 0} bgColor="rgba(170, 214, 219, 0.8)" /> 
+        <InfoBox title="Needing Spay/Neuter" count={needingSpayNeuter || 0} bgColor="rgba(255, 244, 213, 0.8)" /> 
+        <InfoBox title="Kittens Needing Tests" count={comboTest || 0} bgColor="rgba(220, 232, 250, 0.8)" /> 
         {/* Add more components or content here */}
       </div>
       <MyCalendar events={myEvents} />

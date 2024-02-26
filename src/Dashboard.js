@@ -7,6 +7,7 @@ const Dashboard = () => {
       <div style={{ display: 'flex' }}>
         <Sidebar />
         <MainContent />
+
     </div>
     
   );

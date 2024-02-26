@@ -1,0 +1,60 @@
+{
+    "contactInformation": {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "address": "1234 Maple Street",
+      "city": "Anytown",
+      "stateProvince": "Anystate",
+      "zipPostalCode": "12345",
+      "email": "janedoe@example.com",
+      "homePhone": "555-1234",
+      "bestContactPhoneNumber": "555-1234",
+      "ageConfirmation": "Yes"
+    },
+    "catInterest": {
+      "interestedInAdopting": "Mittens",
+      "qualitiesLookingFor": "Affectionate, calm, enjoys being indoors",
+      "reasonForInterest": "Mittens' calm demeanor seems like a perfect match for my quiet home.",
+      "previousExperience": "Grew up with a family cat, owned a cat as an adult for 5 years.",
+      "compatibilityRequirements": [
+        "Children"
+      ]
+    },
+    "lifestyle": {
+      "employerOccupation": "Software Developer",
+      "housingSituation": "Own",
+      "homeType": "House",
+      "homeDescription": "3-bedroom house with a secured backyard",
+      "householdMembers": [
+        {
+          "name": "John Doe",
+          "age": 30
+        },
+        {
+          "name": "Sarah Doe",
+          "age": 28
+        }
+      ],
+      "householdNoiseActivityLevel": "Moderately quiet",
+      "catAllergies": "No",
+      "timeAwayFromHome": "8-9 hours",
+      "catIndoors": "Yes",
+      "declawingPosition": "No, I am against declawing.",
+      "currentPets": [
+        {
+          "species": "Dog",
+          "name": "Buddy",
+          "age": 5,
+          "spayedNeutered": "Yes",
+          "timeWithPet": "5 years",
+          "livedWithCats": "No"
+        }
+      ],
+      "outdoorAccessForPets": "No",
+      "currentPetsVet": "Dr. Smith at Anytown Veterinary Clinic",
+      "petsUpToDateOnVaccinations": "Yes"
+    },
+    "previousPets": "None",
+    "annualCareCost": "$500 - $1000",
+    "rehomePlan": "I would reach out to family and friends for help first. I have never had to give up a pet in the past."
+  }

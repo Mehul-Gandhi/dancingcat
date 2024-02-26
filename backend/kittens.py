@@ -3,10 +3,12 @@ from flask import Flask
 import os
 from datetime import datetime
 from collections import defaultdict
+from flask_cors import CORS
 
 app = Flask(__name__)
 from dotenv import load_dotenv
 load_dotenv()
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 api_key = os.environ.get('API_KEY')
 table_key = os.environ.get('TABLE_KEY')
@@ -20,7 +22,7 @@ spay_neuter = table.all(view="Spay/Neuter Tracker")
 
 
 @app.route('/kitten-tracking-status', methods=['GET'])
-def get_status_json(kitten_table):
+def get_status_json(kitten_table=all_current_kittens):
     """
     """
     unique_statuses = set([x['fields']['Status'] for\
@@ -38,21 +40,22 @@ def get_status_json(kitten_table):
     return status
 
 @app.route('/kitten-tracking-numbers', methods=['GET'])
-def get_kitten_numbers(kitten_table):
+def get_kitten_numbers():
     count = len(all_current_kittens) #26 kittens
     num_vaccinations = len(vaccination_tracker) #9 vaccinations
     spay_neuter_count = len(spay_neuter) # 7 kittens 
     combo_test_count = len(combo_test)
     return {
-        "Count": count,
+        "Total Cats": count,
         "Vaccinations": num_vaccinations,
         "Spay/Neuter": spay_neuter_count,
         "Combo Test": combo_test_count
     }
 
 @app.route('/kitten-tracking-ages', methods=['GET'])
-def age_in_weeks(kitten_table):
+def age_in_weeks(kitten_table=all_current_kittens):
     """
+    Bar chart visualization.
     """
     age = defaultdict(int)
     date_format = "%m/%d/%Y"
@@ -97,3 +100,6 @@ def get_kitten_vax_dates(kitten_table):
         internal["Days to Countdown Date"] = kitten["fields"]["Countdown"]
         status[kitten["fields"]["Kitten Name"]] = internal
     return status
+
+if __name__ == '__main__':
+    app.run(debug=True)

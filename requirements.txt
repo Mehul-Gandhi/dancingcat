@@ -1,0 +1,4 @@
+Flask
+Flask-CORS
+pyairtable
+python-dotenv

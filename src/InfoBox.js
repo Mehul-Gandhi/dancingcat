@@ -1,15 +1,15 @@
 import React from 'react';
 
 const InfoBox = ({ title, count, bgColor }) => {
-  // Set the alpha value for transparency on the background color
-  const transparentBgColor = `${bgColor}80`; // '80' is the alpha value for 50% transparency
+  
+  const transparentBgColor = `${bgColor}80`; 
 
   const boxStyle = {
     padding: '20px',
     borderRadius: '10px',
     color: '#333',
     backgroundColor: bgColor,
-    // Add more styles as needed
+    
   };
 
   return (

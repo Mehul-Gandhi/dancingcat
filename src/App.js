@@ -1,10 +1,16 @@
 import './App.css';
-// import Welcome from './Welcome.js';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage.js';
 import Dashboard from './Dashboard';
-// import NextPageButton from './NextPageButton';
-import { useState } from 'react'; // import the hook
+import Recommendation from './Recommendation';
+import EmergencyDashboard from './EmergencyDashboard';
+import Gallery from './Gallery';
+import MedicalInfoTable from './MedicalInfoTable';
+import TableView from './TableView';
+import GalleryConnect from './GalleryConnect';
+
+import { useState } from 'react';
 
 const App = () => {
   return (
@@ -12,93 +18,16 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/recommendation" element={<Recommendation/>} />
+        <Route path="/EmergencyDashboard" element={<EmergencyDashboard/>} />
+        <Route path="/Gallery" element={<Gallery/>} />
+        <Route path="/MedicalInfoTable" element={<MedicalInfoTable/>} />
+        <Route path="/TableView" element={<TableView/>} />
+        <Route path="/GalleryConnect" element={<GalleryConnect/>} />
       </Routes>
     </Router>
   )
 }
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>Welcome to the Dancing Cat's Dashboard!</h1>
-//       <HomePage />
-//       {/* <NextPageButton /> */}
-//     </div>
-//   )
-  // function doCoolStuff() {
-  //   alert('yay cool')
-  // }
-  // const [count, setCount] = useState(0) // create state
-  // const[tasks, setTasks] = useState(["hello"]); // initial value is an array
-  // const[inputValue, setInputValue] = useState("Task...");
 
-  // const addTask = () => {
-  //   setCount(count + 1);
-
-  //   setTasks([...tasks, inputValue]);
-  //   setInputValue("");
-  // };
-  // return (
-  //   <div>
-  //     <p>You Clicked {count} times</p>
-  //     <button onClick={() => setCount(count+1)}>Click Me</button>
-  //   </div>
-  // )
-  // const increment = () => {
-  //   setCount(count + 1);
-  // }
-  // const tasks = ["Give Workshop", "Field Questions"];
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <h1>Current count: {count}</h1>
-        
-  //       <input placeholder="Add a task..."
-  //        value={inputValue} 
-  //        onChange={(event) => setInputValue(event.target.value)}
-  //        />
-  //       <button onClick = {addTask}>Add Task</button>
-  //       <ul>
-  //         {tasks.map((task) => {
-  //           return (
-  //             <li>{task}</li>
-  //           )
-  //         })
-
-  //         }
-  //       </ul>
-  //     </header>
-  //   </div>
-  // );
-  
-
-  // const doCoolStuff = () => {
-  //   alert('yay wow')
-  // }
-
-  // <ul>
-  //   <li>Task 1 - Give Workshops</li>
-  // </ul>
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <h1> yoyoo</h1>
-  //       <h1>Current count: {count}</h1>
-  //       <button onClick={increment}Click Me></button>
-  //       <Welcome name = "Jessica"/>
-  //       <Welcome name="Madhave"/>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
 
 export default App;

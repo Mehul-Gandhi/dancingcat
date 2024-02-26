@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
+import './Recommendation.js'
+import './Emergency.js'
 
 // Import your images here
 import image1 from './images/image1.png';
@@ -56,9 +58,19 @@ const HomePage = () => {
           className={`image ${index === currentImage ? 'active' : ''}`}
         />
       ))}
-      <Link to="/dashboard" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-        <button className="dashboard-button">🐱 Go to Dashboard</button>
+      <Link to="/dashboard" style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <button className="dashboard-button">🐱 Kitten Dashboard 🐱</button>
       </Link>
+      <Link to="/EmergencyDashboard" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <button className="dashboard-button">🚨 Emergency Fund Dashboard 🚨</button>
+      </Link>
+      <a href="https://www.thedancingcat.org/what-we-do" target="_blank" style={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <button className="dashboard-button">👋 About Us 👋</button>
+      </a>
+      <Link to="/Recommendation" style={{ position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <button className="dashboard-button">🐈 Recommendations 🐈</button>
+        </Link>
+
       {/* Cat paw animation */}
       <div className="cat-paw" style={{ left: `${pawPosition.x}%`, top: `${pawPosition.y}%` }}></div>
     </div>

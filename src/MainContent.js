@@ -91,7 +91,12 @@ const MainContent = () => {
       </div>
       <MyCalendar events={myEvents} />
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+
         <div style={{ flex: 1 }}>
+        <div style={{ justifyContent: 'space-between' }}>
+              Age in Weeks
+          </div>
+
           <MyBarChart />
         </div>
         <div style={{ flex: 1, paddingLeft: "200px"}}>

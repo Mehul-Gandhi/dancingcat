@@ -50,16 +50,51 @@ box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 .dashboard-button:active {
 transform: translate(-50%, -50%) scale(0.9);
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap');
 .title {
+    font-family: 'Rubik Scribble', sans-serif; /* Use the correct font family name */
     position: absolute;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 32px; /* Increased font size */
+    font-size: 55px; /* Increased font size */
     color: #FF4081; /* Pink color */
     text-align: center;
     z-index: 1; /* Ensure title appears above images */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
+    letter-spacing: 2px; /* Adjust letter spacing */
+    padding: 10px 20px; /* Add padding for better spacing */
+}
+
+/* CSS for cat paw animation */
+.cat-paw {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-image: url('./images/cat-paw-image.png'); /* Replace with your cat paw image */
+    background-size: 45px 45px;
+    pointer-events: none; /* Make sure the paw doesn't interfere with mouse events */
+    animation: movePaw 1s infinite alternate; /* Animate paw movement */
   }
+  
+  /* Keyframe animation for paw movement */
+  @keyframes movePaw {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+
+/* HomePage.css */
+.rubik-scribble-regular {
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+
+
   

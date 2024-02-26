@@ -18,22 +18,36 @@ import image13 from './images/image13.jpeg';
 import image14 from './images/image14.png';
 import image15 from './images/image15.jpg';
 
-const images = [image1, image3, image4, image5, image6, image7, image8, image9,image10,image11,image12,image13,image14,image15];
+const images = [image1, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15];
 
 const HomePage = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [pawPosition, setPawPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImage((currentImage) => (currentImage + 1) % images.length);
     }, 5000); // Change image every 5 seconds
 
+    // Cleanup function
     return () => clearInterval(intervalId);
   }, []);
 
+  // Function to update paw position based on mouse movement
+  const handleMouseMove = (event) => {
+    const viewportWidth = document.documentElement.clientWidth;
+    const viewportHeight = document.documentElement.clientHeight;
+
+    // Calculate the position of the paw relative to the image size
+    const pawX = (event.clientX / viewportWidth) * 100;
+    const pawY = (event.clientY / viewportHeight) * 100;
+
+    setPawPosition({ x: pawX, y: pawY });
+  };
+
   return (
-    <div className="image-container" style={{ position: 'relative' }}>
-      <h1 className="title">Welcome to Dancing Cats Website</h1>
+    <div className="image-container" onMouseMove={handleMouseMove} style={{ position: 'relative' }}>
+      <h1 className="title">Welcome to the Dancing Cat!</h1>
       {images.map((image, index) => (
         <img
           key={index}
@@ -45,6 +59,8 @@ const HomePage = () => {
       <Link to="/dashboard" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
         <button className="dashboard-button">🐱 Go to Dashboard</button>
       </Link>
+      {/* Cat paw animation */}
+      <div className="cat-paw" style={{ left: `${pawPosition.x}%`, top: `${pawPosition.y}%` }}></div>
     </div>
   );
 };
